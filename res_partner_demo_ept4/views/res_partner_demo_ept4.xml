@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_res_partner_demo_ept4_tree" model="ir.ui.view">
+        <field name="name">res.partner.demo.ept4.tree</field>
+        <field name="model">res.partner.demo.ept4</field>
+        <field name="arch" type="xml">
+            <tree string="This ept4 module of Requirement - 1">
+                <field name="name"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_res_partner_demo_ept4_form" model="ir.ui.view">
+        <field name="name">res.partner.demo.ept4.form</field>
+        <field name="model">res.partner.demo.ept4</field>
+        <field name="arch" type="xml">
+            <form string="This ept4 module of Requirement - 1">
+                <field name="name"/>
+                <field name="email"/>
+            </form>
+        </field>
+    </record>
+    <record id="view_res_partner_demo_ept4_search" model="ir.ui.view">
+        <field name="name">res.partner.demo.ept4.search</field>
+        <field name="model">res.partner.demo.ept4</field>
+        <field name="arch" type="xml">
+            <search string="This ept4 module of Requirement - 1">
+                <field name="name"/>
+                <field name="email"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_res_partner_demo_ept4" model="ir.actions.act_window">
+        <field name="name">Customer 4</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner.demo.ept4</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_res_partner_demo_ept4_search"/>
+        <field name="help" type="html">
+            <p>This ept4 module of Requirement - 1</p>
+        </field>
+    </record>
+    <menuitem id="menu_demo_root" name="Contacts EPT4"/>
+    <menuitem id="menu_demo_sub1" name="Customer" parent="menu_demo_root"/>
+    <menuitem id="menu_demo_sub2" name="Customer" parent="menu_demo_sub1" action="action_res_partner_demo_ept4"/>
+</odoo>

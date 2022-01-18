@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_res_city_demo_ept_tree" model="ir.ui.view">
+        <field name="name">res.city.demo.ept.tree</field>
+        <field name="model">res.city.demo.ept</field>
+        <field name="arch" type="xml">
+            <tree string="City" editable="bottom">
+                <field name="city"/>
+                <field name="state"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_res_city_demo_ept_search" model="ir.ui.view">
+        <field name="name">res.city.demo.ept.search</field>
+        <field name="model">res.city.demo.ept</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="city"/>
+                <field name="state"/>
+                <filter name="filter_city_active" string="Active" domain="[('active','=',True)]"></filter>
+                <filter name="filter_city_inactive" string="Inactive" domain="[('active','=',False)]"></filter>
+            </search>
+        </field>
+    </record>
+    <record id="action_res_city_demo_ept" model="ir.actions.act_window">
+        <field name="name">City</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.city.demo.ept</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="view_res_city_demo_ept_search"/>
+        <field name="help" type="html">
+            <p>Create New City</p>
+        </field>
+    </record>
+    <menuitem id="menu_demo_sub5" name="City" parent="menu_demo_root"/>
+    <menuitem id="menu_demo_sub6" name="City" parent="menu_demo_sub5" action="action_res_city_demo_ept"/>
+</odoo>

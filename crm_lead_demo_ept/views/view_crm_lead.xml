@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_crm_lead_demo_ept_tree" model="ir.ui.view">
+        <field name="name">crm.lead.demo.ept.tree</field>
+        <field name="model">crm.lead.demo.ept</field>
+        <field name="arch" type="xml">
+            <tree string="Employees">
+                <field name="customer_name"/>
+                <field name="customer_email"/>
+                <field name="customer_phone"/>
+                <field name="salesperson"/>
+                <field name="salesteam"/>
+                <field name="channel"/>
+                <field name="follow_up_date"/>
+                <field name="state" decoration-success="state == 'Won'" decoration-warning="state == 'Proposition'"
+                       decoration-danger="state == 'Lost'"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_crm_lead_demo_ept_form" model="ir.ui.view">
+        <field name="name">crm.lead.demo.ept.form</field>
+        <field name="model">crm.lead.demo.ept</field>
+        <field name="arch" type="xml">
+            <form string="CRM">
+                <group>
+                    <group>
+                        <field name="customer_name"/>
+                        <field name="customer_email"/>
+                        <field name="customer_phone"/>
+                        <field name="expected_revenue"/>
+                    </group>
+                    <group>
+                        <field name="salesperson"/>
+                        <field name="salesteam"/>
+                        <field name="campaign"/>
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="channel"/>
+                        <field name="state"/>
+                        <field name="follow_up_date"/>
+                    </group>
+                    <group>
+                        <field name="won_date"/>
+                        <field name="lost_reason"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="view_crm_lead_demo_ept_search" model="ir.ui.view">
+        <field name="name">crm.lead.demo.ept.search</field>
+        <field name="model">crm.lead.demo.ept</field>
+        <field name="arch" type="xml">
+            <search string="CRM">
+                <field name="customer_name"/>
+                <field name="customer_email"/>
+                <field name="customer_phone"/>
+                <filter string="Today" name="filter_create_date"
+                        domain="[('follow_up_date','=',current_date)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Channel" name="filter_channel" domain="[]"
+                            context="{'group_by':'channel'}"></filter>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_crm_lead_demo_ept" model="ir.actions.act_window">
+        <field name="name">CRM Lead</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crm.lead.demo.ept</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_crm_lead_demo_ept_search"/>
+        <field name="help" type="html">
+            <p>Create New Lead</p>
+        </field>
+    </record>
+    <menuitem id="menu_demo_root" name="CRM"/>
+    <menuitem id="menu_demo_sub1" name="CRM" parent="menu_demo_root"/>
+    <menuitem id="menu_demo_sub2" name="CRM Lead" parent="menu_demo_sub1" action="action_crm_lead_demo_ept"/>
+</odoo>

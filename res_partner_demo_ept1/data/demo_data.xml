@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="demo_01" model="res.partner.demo.ept1">
+            <field name="name">Tushal</field>
+            <field name="email">tushal@gmail.com</field>
+            <field name="gender">Male</field>
+            <field name="country">India</field>
+            <field name="state">GJ</field>
+            <field name="city">RJ</field>
+        </record>
+         <record id="demo_02" model="res.partner.demo.ept1">
+            <field name="name">Prachi</field>
+            <field name="email">prachi@gmail.com</field>
+            <field name="gender">Female</field>
+            <field name="country">India</field>
+            <field name="state">MH</field>
+            <field name="city">Pune</field>
+        </record>
+         <record id="demo_03" model="res.partner.demo.ept1">
+            <field name="name">Bhavya</field>
+            <field name="email">bhavya@gmail.com</field>
+            <field name="gender">Male</field>
+            <field name="country">India</field>
+            <field name="state">GJ</field>
+            <field name="city">Jamnagar</field>
+        </record>
+         <record id="demo_04" model="res.partner.demo.ept1">
+            <field name="name">Tushal</field>
+            <field name="email">tushal@gmail.com</field>
+            <field name="gender">Male</field>
+            <field name="country">India</field>
+            <field name="state">GJ</field>
+            <field name="city">RJ</field>
+        </record>
+         <record id="demo_05" model="res.partner.demo.ept1">
+            <field name="name">Kajal</field>
+            <field name="email">kajal@gmail.com</field>
+            <field name="gender">Female</field>
+            <field name="country">India</field>
+            <field name="state">GJ</field>
+            <field name="city">RJ</field>
+        </record>
+    </data>
+</odoo>

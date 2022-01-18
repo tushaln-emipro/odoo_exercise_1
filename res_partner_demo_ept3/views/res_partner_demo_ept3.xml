@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_res_partner_demo_ept3_tree" model="ir.ui.view">
+        <field name="name">res.partner.demo.ept3.tree</field>
+        <field name="model">res.partner.demo.ept3</field>
+        <field name="arch" type="xml">
+            <tree string="This ept3 module of Requirement - 1">
+                <field name="name"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_res_partner_demo_ept3_form" model="ir.ui.view">
+        <field name="name">res.partner.demo.ept3.form</field>
+        <field name="model">res.partner.demo.ept3</field>
+        <field name="arch" type="xml">
+            <form string="This ept2 module of Requirement - 1">
+                <group>
+                    <field name="name"/>
+                    <field name="email"/>
+                </group>
+                <group></group>
+            </form>
+        </field>
+    </record>
+    <record id="view_res_partner_demo_ept3_search" model="ir.ui.view">
+        <field name="name">res.partner.demo.ept3.search</field>
+        <field name="model">res.partner.demo.ept3</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="email"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_res_partner_demo_ept3" model="ir.actions.act_window">
+        <field name="name">Customer 3</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner.demo.ept3</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_res_partner_demo_ept3_search"/>
+        <field name="help" type="html">
+            <p>This ept3 module of Requirement - 1</p>
+        </field>
+    </record>
+    <menuitem id="menu_demo_root" name="Contacts EPT3"/>
+    <menuitem id="menu_demo_sub1" name="Customers" parent="menu_demo_root"/>
+    <menuitem id="menu_demo_sub1" name="Customers" parent="menu_demo_root" action="action_res_partner_demo_ept3"/>
+</odoo>

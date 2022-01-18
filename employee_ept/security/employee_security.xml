@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="module_employee_demo_ept" model="ir.module.category">
+            <field name="name">Display Employees</field>
+            <field name="description">Show Employees Modules</field>
+        </record>
+        <record id="group_employee_demo_ept_user" model="res.groups">
+            <field name="name">Employee User</field>
+            <field name="category_id" ref="module_employee_demo_ept"/>
+<!--            <field name="implied_ids" eval="[(4, ref('group_user'))]"/>-->
+        </record>
+        <record id="group_employee_demo_ept_manager" model="res.groups">
+            <field name="name">Employee Manager</field>
+            <field name="category_id" ref="module_employee_demo_ept"/>
+            <field name="implied_ids"
+                   eval="[(4, ref('group_employee_demo_ept_user'))]"/>
+<!--            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>-->
+        </record>
+    </data>
+</odoo>

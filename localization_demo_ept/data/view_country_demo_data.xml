@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="country_demo_data_01" model="res.country.demo.ept">
+            <field name="country">India</field>
+            <field name="short_code">I</field>
+            <field name="active">True</field>
+        </record>
+         <record id="country_demo_data_02" model="res.country.demo.ept">
+            <field name="country">Afghanistan</field>
+            <field name="short_code">AF</field>
+            <field name="active">True</field>
+        </record>
+         <record id="country_demo_data_03" model="res.country.demo.ept">
+            <field name="country">Albania</field>
+            <field name="short_code">AL</field>
+            <field name="active">True</field>
+        </record>
+         <record id="country_demo_data_04" model="res.country.demo.ept">
+            <field name="country">Algeria</field>
+            <field name="short_code">DZ</field>
+            <field name="active">True</field>
+        </record>
+         <record id="country_demo_data_05" model="res.country.demo.ept">
+            <field name="country">American Samoa</field>
+            <field name="short_code">AS</field>
+            <field name="active">False</field>
+        </record>
+    </data>
+</odoo>

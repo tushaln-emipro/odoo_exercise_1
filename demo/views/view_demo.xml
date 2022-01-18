@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_res_demo_tree" model="ir.ui.view">
+        <field name="name">res.demo.tree</field>
+        <field name="model">res.demo</field>
+        <field name="arch" type="xml">
+            <tree string="Demo">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone_no"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_res_demo_form" model="ir.ui.view">
+        <field name="name">res.demo.form</field>
+        <field name="model">res.demo</field>
+       <field name="arch" type="xml">
+            <form string="Demo">
+                <group>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone_no"/>
+                </group>
+                <group></group>
+            </form>
+        </field>
+    </record>
+
+     <record id="view_res_demo_search" model="ir.ui.view">
+        <field name="name">res.demo.search</field>
+        <field name="model">res.demo</field>
+       <field name="arch" type="xml">
+            <search string="Demo">
+                <field name="name"/>
+                <field name="email"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_res_demo" model="ir.actions.act_window">
+        <field name="name">Demo</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.demo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_res_demo_search"/>
+        <field name="help" type="html">
+            <p>This my first form</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_demo_root" name="Demo"/>
+    <menuitem id="menu_demo_sub1" name="Demo Details" parent="menu_demo_root"/>
+    <menuitem id="menu_demo_sub2" name="Demo" parent="menu_demo_sub1" action="action_res_demo"/>
+
+</odoo>

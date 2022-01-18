@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_product_demo_ept_tree" model="ir.ui.view">
+        <field name="name">product.demo.ept.tree</field>
+        <field name="model">product.demo.ept</field>
+        <field name="arch" type="xml">
+            <tree string="Product Demo">
+                <field name="name"/>
+                <field name="sku"/>
+                <field name="barcode"/>
+                <field name="product_type"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_res_product_demo_ept_form" model="ir.ui.view">
+        <field name="name">product.demo.ept.form</field>
+        <field name="model">product.demo.ept</field>
+        <field name="arch" type="xml">
+            <form string="Product Demo">
+                <steet>
+                    <field name="image" widget="image" class="oe_avatar"
+                           options="{'preview_image': 'image'}"/>
+                    <div class="oe_title">
+                        <label class="oe_edit_only" for="name" string="Product Name"/>
+                        <h1>
+                            <field name="name" placeholder="Product Name"/>
+                        </h1>
+                        <div name="options" groups="base.group_user">
+                            <div>
+                                <field name="be_sold"/>
+                                <label for="be_sold"/>
+                            </div>
+                            <div>
+                                <field name="active"/>
+                                <label for="active"/>
+                            </div>
+                        </div>
+                    </div>
+                    <notebook>
+                        <page string="General Information" name="general_information">
+                            <group>
+                                <group name="group_general">
+                                    <field name="product_type" widget="radio"/>
+                                    <field name="sku"/>
+                                    <field name="barcode"/>
+                                </group>
+                                <group name="group_standard_price">
+                                    <field name="sale_price"/>
+                                    <field name="cost_price"/>
+                                    <field name="warehouse"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="internal_note"/>
+                            </group>
+                        </page>
+                        <page string="Other Information" name="Other_information">
+                            <group>
+                                <field name="description"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </steet>
+            </form>
+        </field>
+    </record>
+    <record id="view_product_demo_ept_search" model="ir.ui.view">
+        <field name="name">product.demo.ept.search</field>
+        <field name="model">product.demo.ept</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="sku"/>
+                <field name="barcode"/>
+                <filter name="filter_sold" string="Can this product be sold" domain="[('be_sold','=',True)]"></filter>
+                <group expand="0" string="Group By">
+                    <filter string="Product Type" name="filter_product_type" domain="[]"
+                            context="{'group_by':'product_type'}"></filter>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_product_demo_ept" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.demo.ept</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_product_demo_ept_search"/>
+        <field name="help" type="html">
+            <p>Create New Product</p>
+        </field>
+    </record>
+    <menuitem id="menu_demo_root" name="Products Demo"/>
+    <menuitem id="menu_demo_sub1" name="Products" parent="menu_demo_root"/>
+    <menuitem id="menu_demo_sub2" name="Products" parent="menu_demo_sub1" action="action_product_demo_ept"/>
+</odoo>
